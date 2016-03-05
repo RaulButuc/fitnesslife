@@ -4,42 +4,49 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../static/css/foundation.min.css">
 		<link rel="stylesheet" href="../static/css/index.css">
+		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	</head>
 	<body>
 		<div class="main-body-wrapper">
 			<div class="row body-wrapper">
-				<div class="small-8 columns wrapper left-side">					
+				<div class="small-8 columns wrapper left-side">		
+					<div class="page-title">Hi, username! Ready for some training?</div>
+					<div class="clear"></div>
 					<div class="row header-wrapper wrp">
 						<div class="main-usr-wrap">
 							<div class="small-12 columns header">
 								<div class="usr-div-img">
-									<img src="../static/img/sacal.jpg" alt="">
+									<img class="profile-pic" src="../static/img/sacal.jpg" alt="">
 								</div>
 								<div class="usr-details">
-									<span class="name">Alex Sacalu</span>
-									<span class="rank">Rank 
-										<span class="rank-n">1</span>
-									</span>
+									<div class="name">Alex Sacalu</div>
+									<div class="rank">Rank <span class="rank-n">1</span></div>
+									<div class="age">Age <span class="rank-n">21</span></div>
+									<div class="weight">Weight <span class="rank-n">71 kg</span></div>
+									<div class="height">Height <span class="rank-n">1.77 m</span></div>
 								</div>
 							</div>
 						</div>
 						<div class="other-info-wrapper">
-							<span class="age">Age <span class="rank-n">21</span></span>
-							<span class="weight">Weight <span class="rank-n">71 kg</span></span>
-							<span class="height">Height <span class="rank-n">1.77 m</span></span>
 						</div>
 					</div>
 					<div class="row videos-search-results">
 						<div class="small-12 columns results">
-							<h3 class="title">Suggested exercises</h3>
 							<ul class="videos">
+								<h3 class="title">Previous exercises</h3>
+								<hr class="shadow"/>
+								<div class="clear"></div>
 								<li class="video">
 									<iframe src="https://www.youtube.com/embed/zQ67ec9z_GE" allowfullscreen="allowfullscreen"></iframe>
 								</li>
+								<hr class="shadow"/>
+								<div class="clear"></div>
 								<li class="video">
 									<iframe src="https://www.youtube.com/embed/zQ67ec9z_GE" allowfullscreen="allowfullscreen"></iframe>
 								</li>
+								<hr class="shadow"/>
+								<div class="clear"></div>
 								<li class="video">
 									<iframe src="https://www.youtube.com/embed/zQ67ec9z_GE" allowfullscreen="allowfullscreen"></iframe>
 								</li>
@@ -49,6 +56,8 @@
 					<div class="row suggestions-search-results">
 						<div class="small-12 columns results">
 							<h3 class="title">Suggested details</h3>
+							<hr class="shadow"/>
+							<div class="clear"></div>
 							<div class="details">
 								Cu doar 30 de bani pastila luati tusin. Recomandat se iau 6-7
 								capsule. Pentru a atinge efectul maxim luati le cu minim 100ml
@@ -60,6 +69,7 @@
 				<div class="small-4 columns right-side">
 					<div class="row suggested-videos-wrapper">
 						<div class="small-12 columns videos">
+							<button class="btn centered full-width" onclick="javascript:void(0);">Start Training</button>
 							<h3 class="sugestions-header">Popular videos</h3>
 							<ul class="videos">
 								<li class="video">
