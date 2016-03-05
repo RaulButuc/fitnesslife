@@ -1,0 +1,156 @@
+.main-body-wrapper {
+  background: #F5F5F5;
+  padding-top: 20px; }
+  .main-body-wrapper .body-wrapper {
+    max-width: 66.5rem !important; }
+  .main-body-wrapper textarea {
+    border: 1px solid #8900FF !important;
+    border-radius: 3px !important;
+    color: #8900FF !important;
+    overflow: scroll !important;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.17); }
+  .main-body-wrapper .send-but {
+    color: #8900FF;
+    background: white;
+    border: 1px solid #8900FF;
+    padding: 10px;
+    border-radius: 3px;
+    width: 100%;
+    height: 60px; }
+    .main-body-wrapper .send-but:hover {
+      background: #8900FF;
+      color: #FFF; }
+  .main-body-wrapper .exercise-result-words, .main-body-wrapper .exercise-result-chosen {
+    width: 100%;
+    margin: 0px;
+    border: 1px solid #8900FF !important;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.17);
+    background: #FFF;
+    margin-bottom: 10px; }
+    .main-body-wrapper .exercise-result-words ul.words-list li.word, .main-body-wrapper .exercise-result-chosen ul.words-list li.word {
+      color: #8900FF !important;
+      display: inline-block;
+      padding: 5px 25px 5px 25px !important;
+      background: #F9F8F8 !important;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3) !important;
+      margin-bottom: 8px;
+      margin-right: 8px; }
+  .main-body-wrapper .select-option .send-but {
+    padding: 10px 25px; }
+
+ul {
+  margin: 0px; }
+  ul li {
+    list-style-type: none; }
+
+.suggested-videos-wrapper {
+  margin-bottom: 20px !important; }
+
+ul.videos {
+  background: #FFF;
+  margin-top: 10px;
+  border: 1px solid #8900FF;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3) !important;
+  padding: 10px; }
+
+h3.title, .sugestions-header {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px; }
+
+li.video {
+  border-bottom: 1px solid #8900FF !important;
+  padding: 10px 0px; }
+  li.video:last-child {
+    border: none !important; }
+
+.results {
+  padding: 0px; }
+
+.videos-search-results {
+  margin-bottom: 10px !important; }
+
+.suggestions-search-results {
+  padding: 10px;
+  background: #FFF;
+  border: 1px solid #8900FF;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3) !important;
+  margin-top: 10px;
+  margin-bottom: 30px !important; }
+
+.microphone-wrapper {
+  font-size: 50px;
+  margin-bottom: 20px; }
+  .microphone-wrapper i {
+    color: #515151; }
+
+.get-video {
+  padding-right: 0px;
+  padding-left: 0px; }
+
+.user-box {
+  border-bottom: 1px solid #8900FF !important;
+  clear: both !important; }
+  .user-box:last-child {
+    border: none !important; }
+  .user-box .user-img-wrapper {
+    max-height: 65px !important;
+    max-width: 65px !important;
+    float: left !important;
+    overflow: hidden !important;
+    border-radius: 3px !important;
+    margin-right: 10px !important;
+    margin-bottom: 10px !important;
+    margin-top: 10px !important; }
+  .user-box .user-details {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: left !important; }
+    .user-box .user-details span.name {
+      font-size: 14px; }
+  .user-box span.rank {
+    display: block;
+    font-size: 14px; }
+    .user-box span.rank span.rank-no {
+      font-weight: 600; }
+
+.wrp {
+  background: #FFF !important;
+  padding: 10px;
+  margin-bottom: 10px !important;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3) !important; }
+
+.main-usr-wrap {
+  clear: both; }
+  .main-usr-wrap .usr-div-img {
+    max-width: 150px;
+    max-height: 150px;
+    float: left;
+    margin-right: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 10px !important; }
+  .main-usr-wrap .usr-details {
+    display: block;
+    float: left; }
+    .main-usr-wrap .usr-details span {
+      font-size: 20px; }
+    .main-usr-wrap .usr-details span.name {
+      display: block !important; }
+    .main-usr-wrap .usr-details span.rank {
+      font-weight: 2; }
+      .main-usr-wrap .usr-details span.rank span.rank-n {
+        font-weight: 600; }
+
+.other-info-wrapper {
+  padding: 15px;
+  margin-top: 10px; }
+  .other-info-wrapper span.age, .other-info-wrapper span.weight, .other-info-wrapper span.height {
+    display: block;
+    font-size: 20px; }
+  .other-info-wrapper span.rank-n {
+    font-weight: 600; }
+
+/*# sourceMappingURL=index.css.map */
