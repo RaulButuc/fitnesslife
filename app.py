@@ -102,7 +102,7 @@ def signUp():
             else:
                 return json.dumps({'error':str(data[0])})
         else:
-            return json.dumps({'html':'<span>Enter the required fields</span>'})
+            return json.dumps({'html':'<span>Enter the required asdsafields</span>'})
 
     except Exception as e:
         return json.dumps({'error':str(e)})
