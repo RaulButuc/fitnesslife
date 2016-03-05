@@ -2,6 +2,7 @@ from flask import Flask, render_template, json, request,redirect,session
 from flask.ext.mysql import MySQL
 from werkzeug import generate_password_hash, check_password_hash
 import speech_recognition as sr
+import pprint
 mysql = MySQL()
 app = Flask(__name__)
 app.secret_key = 'why would I tell you my secret key?'
@@ -68,6 +69,33 @@ def userHome():
         return render_template('error.html',error = 'Unauthorized Access')
 
 
+@app.route('/getUserRanks')
+def getUserRanks():
+    cursor = mysql.connect().cursor()
+    query = "SELECT user_id, first_name, surname FROM `users` ORDER BY points DESC LIMIT 4;";
+    
+    cursor.execute(query)
+    data =  cursor.fetchall()
+    user = []
+    for x in data:
+        user.append({x[0] : x[1] + " " + x[2]})
+
+    return json.dumps(user)
+
+@app.route('/getBestVideos')
+def getBestVideos():
+   cursor = mysql.connect().cursor()
+   query = "SELECT link FROM `videos` ORDER BY counter DESC LIMIT 4;"; 
+
+   cursor.execute(query)
+   data =  cursor.fetchall()
+   user = []
+   
+   for x in data:
+      user.append(x[0])
+
+   return json.dumps(user)
+
 @app.route('/logout')
 def logout():
     session.pop('user',None)
@@ -108,7 +136,7 @@ def validateLogin():
         con.close()
 
 
-@app.route('/signUp',methods=['POST','GET'])
+@app.route('/signUp', methods=['POST','GET'])
 def signUp():
     try:
         _name = request.form['inputName']
