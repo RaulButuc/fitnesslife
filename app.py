@@ -27,7 +27,7 @@ def main():
 
 @app.route('/main')
 def triggerSpeech():
-    return render_template('appInterface.html')
+    return render_template('main.html')
 
 @app.route('/listen')
 def speak():
