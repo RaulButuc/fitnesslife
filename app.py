@@ -11,6 +11,7 @@ app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'barlad'
 app.config['MYSQL_DATABASE_DB'] = 'fitnessDB'
 app.config['MYSQL_DATABASE_HOST'] = 'manchesterprofessionals.io'
+
 mysql.init_app(app)
 
 
