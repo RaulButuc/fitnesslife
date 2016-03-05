@@ -25,6 +25,10 @@ exerciseType = ['shoulder', 'chest', 'muscle', 'circuit', 'back', 'leg' , 'calor
 def main():
     return render_template('index.html')
 
+@app.route('/main')
+def triggerSpeech():
+    return render_template('appInterface.html')
+
 @app.route('/listen')
 def speak():
     try:
