@@ -17,8 +17,29 @@ section.intro{
   min-height: 100%;
 }
 
-.video{
+.text {
+    display: table;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 800;
+    font-size: 50px;
+    margin: 0 auto;
+    padding-top: 15%;
+	color: white;
+	z-index: 1;
+}
 
+.mic {
+	display: table;
+	margin: 0 auto;
+	width: 73px;
+	height: 73px;
+	background: url("../img/mic-blue.png") no-repeat center;
+	border: none;
+	cursor: pointer;
+	padding-top: 125px;
+}
+
+.video{
   position: relative;
   z-index: 9000; 
   background-color:rgba(0,0,0,0.7); 
@@ -28,16 +49,14 @@ section.intro{
   left:0;
 }
 
+.clear:after {
+	content: ".";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
 /*@keyframes alpha {
   50%{fill: #000;}
 }*/
-
-.text {
-    position: absolute;
-    z-index: 1;
-    font-size: 50px;
-    margin: 0 auto;
-    width: 33%;
-    color: white;
-    padding-top: 10%;
-}
