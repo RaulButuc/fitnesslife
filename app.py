@@ -8,9 +8,10 @@ app.secret_key = 'why would I tell you my secret key?'
 
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'mamaligos'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'barlad'
 app.config['MYSQL_DATABASE_DB'] = 'fitnessDB'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_HOST'] = 'manchesterprofessionals.io'
+
 mysql.init_app(app)
 
 r = sr.Recognizer()
@@ -50,14 +51,14 @@ def speak():
 
 @app.route('/showSignUp')
 def showSignUp():
-    return render_template('signup.html')
+    return render_template('sign-up.html')
 
 @app.route('/showSignin')
 def showSignin():
     if session.get('user'):
-        return render_template('userHome.html')
+        return render_template('index.html')
     else:
-        return render_template('signin.html')
+        return render_template('log-in.html')
 
 @app.route('/userHome')
 def userHome():
@@ -131,7 +132,7 @@ def signUp():
             else:
                 return json.dumps({'error':str(data[0])})
         else:
-            return json.dumps({'html':'<span>Enter the required fields</span>'})
+            return json.dumps({'html':'<span>Enter the required asdsafields</span>'})
 
     except Exception as e:
         return json.dumps({'error':str(e)})

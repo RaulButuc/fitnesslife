@@ -1,66 +1,119 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Python Flask Bucket List App</title>
-
-   
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-
-   
-  </head>
-
-  <body>
-
-    <div class="container">
-      <div class="header">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="/showSignin">Sign In</a></li>
- 	    <li role="presentation"><a href="/listen">Sign Up</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">Python Flask App</h3>
-      </div>
-
-      <div class="jumbotron">
-        <h1>Bucket List App</h1>
-        <p class="lead"></p>
-        <p><a class="btn btn-lg btn-success" href="/listen" role="button">Listen</a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Bucket List</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Bucket List</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Bucket List</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-
-        <div class="col-lg-6">
-          <h4>Bucket List</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Bucket List</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Bucket List</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div>
-
-      <footer class="footer">
-        <p>&copy; Company 2015</p>
-      </footer>
-
-    </div>
-  </body>
+<html>
+	<head>
+		<title>fitness</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../static/css/foundation.min.css">
+		<link rel="stylesheet" href="../static/css/index.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<div class="main-body-wrapper">
+			<div class="row body-wrapper">
+				<div class="small-8 columns wrapper left-side">					
+					<div class="row header-wrapper wrp">
+						<div class="main-usr-wrap">
+							<div class="small-12 columns header">
+								<div class="usr-div-img">
+									<img src="../static/img/sacal.jpg" alt="">
+								</div>
+								<div class="usr-details">
+									<span class="name">Alex Sacalu</span>
+									<span class="rank">Rank 
+										<span class="rank-n">1</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="other-info-wrapper">
+							<span class="age">Age <span class="rank-n">21</span></span>
+							<span class="weight">Weight <span class="rank-n">71 kg</span></span>
+							<span class="height">Height <span class="rank-n">1.77 m</span></span>
+						</div>
+					</div>
+					<div class="row videos-search-results">
+						<div class="small-12 columns results">
+							<h3 class="title">Suggested exercises</h3>
+							<ul class="videos">
+								<li class="video">
+									<iframe src="https://www.youtube.com/embed/zQ67ec9z_GE" allowfullscreen="allowfullscreen"></iframe>
+								</li>
+								<li class="video">
+									<iframe src="https://www.youtube.com/embed/zQ67ec9z_GE" allowfullscreen="allowfullscreen"></iframe>
+								</li>
+								<li class="video">
+									<iframe src="https://www.youtube.com/embed/zQ67ec9z_GE" allowfullscreen="allowfullscreen"></iframe>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="row suggestions-search-results">
+						<div class="small-12 columns results">
+							<h3 class="title">Suggested details</h3>
+							<div class="details">
+								Cu doar 30 de bani pastila luati tusin. Recomandat se iau 6-7
+								capsule. Pentru a atinge efectul maxim luati le cu minim 100ml
+								de rachiu de minim 50 grade. Experienta placuta !
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="small-4 columns right-side">
+					<div class="row suggested-videos-wrapper">
+						<div class="small-12 columns videos">
+							<h3 class="sugestions-header">Popular videos</h3>
+							<ul class="videos">
+								<li class="video">
+									<iframe src="https://www.youtube.com/embed/zQ67ec9z_GE" allowfullscreen="allowfullscreen"></iframe>
+								</li>
+								<li class="video">
+									<iframe src="https://www.youtube.com/embed/zQ67ec9z_GE" allowfullscreen="allowfullscreen"></iframe>
+								</li>
+								<li class="video">
+									<iframe src="https://www.youtube.com/embed/zQ67ec9z_GE" allowfullscreen="allowfullscreen"></iframe>
+								</li>
+							</ul>		
+						</div>
+					</div>
+					<div class="row suggested-videos-wrapper ranks-wrapper">
+						<div class="small-12 columns videos">
+							<h3 class="sugestions-header">Top rank users</h3>
+							<ul class="videos">
+								<li class="user-box">
+									<span class="user-img-wrapper">
+										<a href="#">
+											<img src="../static/img/sacal.jpg" alt="">
+										</a>
+									</span>
+									<div class="user-details">
+										<a href="#">
+											<span class="name">Alex Sacalu</span>	
+										</a>
+										<span class="rank">Rank 
+											<span class="rank-no">12</span>
+										</span>
+									</div>
+								</li>
+								<li class="user-box">
+									<span class="user-img-wrapper">
+										<a href="#">
+											<img src="../static/img/sacal.jpg" alt="">
+										</a>
+									</span>
+									<div class="user-details">
+										<a href="#">
+											<span class="name">Alex Sacalu</span>	
+										</a>
+										<span class="rank">Rank 
+											<span class="rank-no">12</span>
+										</span>
+									</div>
+								</li>
+								<li class="user-box"></li>
+							</ul>		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
-
