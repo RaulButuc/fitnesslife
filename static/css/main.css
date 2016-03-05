@@ -6,7 +6,7 @@ body{
 }
 
 body{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat';
 }
 
 section.intro{
@@ -19,11 +19,10 @@ section.intro{
 
 .text {
     display: table;
-	font-family: 'Roboto', sans-serif;
 	font-weight: 800;
     font-size: 50px;
     margin: 0 auto;
-    padding-top: 15%;
+    padding-top: 28.5%;
 	color: white;
 	z-index: 1;
 }
