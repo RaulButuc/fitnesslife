@@ -9,9 +9,9 @@ app.secret_key = 'why would I tell you my secret key?'
 
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'mamaligos'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'barlad'
 app.config['MYSQL_DATABASE_DB'] = 'fitnessDB'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_HOST'] = 'manchesterprofessionals.io'
 
 mysql.init_app(app)
 
@@ -21,6 +21,10 @@ m = sr.Microphone()
 @app.route('/')
 def main():
     return render_template('index.html')
+
+@app.route('/main')
+def triggerSpeech():
+    return render_template('appInterface.html')
 
 @app.route('/listen')
 def speak():
@@ -48,7 +52,7 @@ def speak():
     except KeyboardInterrupt:
         pass
 
-    return render_template('signup.html')
+    return json.dumps()
 
 @app.route('/showSignUp')
 def showSignUp():
