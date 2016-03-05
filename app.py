@@ -21,14 +21,14 @@ def main():
 
 @app.route('/showSignUp')
 def showSignUp():
-    return render_template('signup.html')
+    return render_template('sign-up.html')
 
 @app.route('/showSignin')
 def showSignin():
     if session.get('user'):
-        return render_template('userHome.html')
+        return render_template('index.html')
     else:
-        return render_template('signin.html')
+        return render_template('log-in.html')
 
 @app.route('/userHome')
 def userHome():
