@@ -3,20 +3,23 @@ from flask.ext.mysql import MySQL
 from werkzeug import generate_password_hash, check_password_hash
 import speech_recognition as sr
 import pprint
+from textblob import TextBlob
+from textblob import Word
 mysql = MySQL()
 app = Flask(__name__)
 app.secret_key = 'why would I tell you my secret key?'
 
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'mamaligos'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'barlad'
 app.config['MYSQL_DATABASE_DB'] = 'fitnessDB'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_HOST'] = 'manchesterprofessionals.io'
 
 mysql.init_app(app)
 
 r = sr.Recognizer()
 m = sr.Microphone()
+exerciseType = ['shoulder', 'chest', 'muscle', 'circuit', 'back', 'leg' , 'calories', 'lose weight']
 
 @app.route('/')
 def main():
@@ -35,7 +38,7 @@ def speak():
 
         #response array with links
         response = []
-
+        data = []
         try:
             # recognize speech using Google Speech Recognition
             value = r.recognize_google(audio)
@@ -48,11 +51,16 @@ def speak():
                 # cuvant = Word(text)
                 print (text + " this is the sentence")
                 for tag in TextBlob(text).tags:
-                    if tag[1] == 'NN' or tag[1] == 'NNP':
+                    print (tag[1] + tag[0])
+                    if tag[1] == 'NN' or tag[1] == 'NNP' or tag[1] == "NNS":
                         for key in exerciseType :
                             auxVar = Word(tag[0].lower()).singularize()
                             if(key == auxVar):
                                 print (key + " this is it ")
+                                cursor = mysql.connect().cursor()
+                                query  = "SELECT videos.link FROM videos, workouts WHERE videos.workoutID = workouts.ID AND workouts.type='" + auxVar + "'"
+                                cursor.execute(query)
+                                data.append(cursor.fetchone())
                                 break
 
                 # print (cuvant.definitions)
@@ -71,7 +79,11 @@ def speak():
     except KeyboardInterrupt:
         pass
 
-    return render_template('signup.html')
+    return json.dumps(data)
+
+@app.route('/main')
+def runSpeech():
+    return render_template('mainInterface.html')
 
 @app.route('/showSignUp')
 def showSignUp():
