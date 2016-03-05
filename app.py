@@ -27,20 +27,43 @@ def speak():
     try:
         print("A moment of silence, please...")
         with m as source: r.adjust_for_ambient_noise(source)
-        print("Set minimum energy threshold to {}".format(r.energy_threshold))
-       
+        print("Set random energy threshold to {}".format(r.energy_threshold))
+        #while True:
         print("Say something!")
         with m as source: audio = r.listen(source)
         print("Got it! Now to recognize it...")
+
+        #response array with links
+        response = []
+
         try:
             # recognize speech using Google Speech Recognition
             value = r.recognize_google(audio)
 
             # we need some special handling here to correctly print unicode characters to standard output
             if str is bytes: # this version of Python uses bytes for strings (Python 2)
-                print(u"You said {}".format(value).encode("utf-8"))
-            else: # this version of Python uses unicode for strings (Python 3+)
-                print("You said {}".format(value))
+                # print(u"You said {}".format(value).encode("utf-8"))
+                text = value.encode("utf-8")
+                text = text.decode("utf-8")
+                # cuvant = Word(text)
+                print (text + " this is the sentence")
+                for tag in TextBlob(text).tags:
+                    if tag[1] == 'NN' or tag[1] == 'NNP':
+                        for key in exerciseType :
+                            auxVar = Word(tag[0].lower()).singularize()
+                            if(key == auxVar):
+                                print (key + " this is it ")
+                                break
+
+                # print (cuvant.definitions)
+                how = TextBlob(text).sentiment.polarity
+                print (how)
+                if how > 0:
+                    print ("you are happy")
+                elif how < 0:
+                    print ("you are sad")
+                else:
+                    print ("neutral mood")
         except sr.UnknownValueError:
             print("Oops! Didn't catch that")
         except sr.RequestError as e:
