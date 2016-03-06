@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html ng-app="mainApp">
 <head lang="en">
 	
@@ -12,24 +12,22 @@
   <script src="../static/js/service/urlFilter.js"></script>
   <script src="../static/js/controller/appController.js"></script>
   <script type="text/javascript">
-  	
   	$(document).ready(function() {
   		$("video").prop('muted', true);
   	});
-  	</script>
+  </script>
   <meta charset="UTF-8">
   <title>Body background example</title>
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <!--<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>-->
   <link rel="stylesheet" href="../static/css/main.css" >
 
 </head>
 <body ng-controller="appController">
  	
- 	<a href="/">My Homepage</a>
  	<div ng-if="!view2">
  		<script>
- 			$("video").prop('muted', true);
+            $("video").prop('muted', true);
  		</script>
  		<div class="fullscreen-cover">&nbsp;</div>
  		<div class="fullscreen-bg">
@@ -41,7 +39,7 @@
 		<div class="text">HOW ARE YOU FEELING TODAY?</div>
 		<div class="clear"></div>
 		<button class="mic" ng-click="triggerSpeech()"></button>
-		
+         <button class="btn right-align">My Profile</button>
 	</div>
 	
 	<div ng-if="view2">
