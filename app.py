@@ -5,21 +5,34 @@ import speech_recognition as sr
 import pprint
 from textblob import TextBlob
 from textblob import Word
+from twilio.rest import TwilioRestClient
+
 mysql = MySQL()
 app = Flask(__name__)
 app.secret_key = 'why would I tell you my secret key?'
 
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'barlad'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'mamaligos'
 app.config['MYSQL_DATABASE_DB'] = 'fitnessDB'
-app.config['MYSQL_DATABASE_HOST'] = 'manchesterprofessionals.io'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 mysql.init_app(app)
 
 r = sr.Recognizer()
 m = sr.Microphone()
 exerciseType = ['shoulder', 'chest', 'muscle', 'circuit', 'back', 'leg' , 'calories', 'lose weight']
+
+@app.route('/sendSMS')
+def other():
+    # Find these values at https://twilio.com/user/account
+    account_sid = "AC4ed44c0b7196e2c3882456916d9f0710"
+    auth_token = "78181ae564197745d7621a411458cd24"
+    client = TwilioRestClient(account_sid, auth_token)
+     
+    message = client.messages.create(to="+447759366400", from_="+441445295014",body="Hello there!")
+
+    return render_template('index.html')
 
 @app.route('/')
 def main():
@@ -49,41 +62,46 @@ def speak():
 
             # we need some special handling here to correctly print unicode characters to standard output
             if str is bytes: # this version of Python uses bytes for strings (Python 2)
-                # print(u"You said {}".format(value).encode("utf-8"))
                 text = value.encode("utf-8")
                 text = text.decode("utf-8")
-                # cuvant = Word(text)
-                print (text + " this is the sentence")
                 for tag in TextBlob(text).tags:
-                    print (tag[1] + tag[0])
                     if tag[1] == 'NN' or tag[1] == 'NNP' or tag[1] == "NNS":
                         for key in exerciseType :
                             auxVar = Word(tag[0].lower()).singularize()
                             if(key == auxVar):
-                                print (key + " this is it ")
                                 cursor = mysql.connect().cursor()
                                 query  = "SELECT videos.link FROM videos, workouts WHERE videos.workoutID = workouts.ID AND workouts.type='" + auxVar + "'"
                                 cursor.execute(query)
                                 data.append(cursor.fetchone())
                                 break
 
-                # print (cuvant.definitions)
-                how = TextBlob(text).sentiment.polarity
-                print (how)
-                if how > 0:
-                    print ("you are happy")
-                elif how < 0:
-                    print ("you are sad")
-                else:
-                    print ("neutral mood")
+                #Working with the state of the user
+                state = TextBlob(text).sentiment.polarity
+                print(state)
+                print (state)
+                if -1 <= state < -0.75:
+                    return "weareyoung.mp3"
+                elif -0.75 <= state < -0.5:
+                    return "limbaromana.mp3"
+                elif -0.5 <= state < -0.25:
+                    return "bobmarley.mp3"
+                elif -0.25 <= state < 0:
+                    return "thelumineers.mp3" 
+                elif 0 <= state < 0.25:
+                    return "eyeofthetiger.mp3"
+                elif 0.25 <= state < 0.5:
+                    return "goodnight.mp3"
+                elif 0.5 <= state < 0.75:
+                    return "dimitrivegas.mp3"
+                elif 0.75 <= state <= 1:
+                    return "herecomestheboom.mp3"
+
         except sr.UnknownValueError:
             print("Oops! Didn't catch that")
         except sr.RequestError as e:
             print("Uh oh! Couldn't request results from Google Speech Recognition service; {0}".format(e))
     except KeyboardInterrupt:
         pass
-
-    return json.dumps(data)
 
 @app.route('/main')
 def runSpeech():
