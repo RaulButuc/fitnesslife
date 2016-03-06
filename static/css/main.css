@@ -24,7 +24,7 @@ section.intro{
     margin: 0 auto;
     padding-top: 28.5%;
 	color: white;
-	z-index: 1;
+	z-index: 1000 !important`;
 }
 
 .mic {
@@ -36,16 +36,7 @@ section.intro{
 	border: none;
 	cursor: pointer;
 	padding-top: 125px;
-}
-
-.video{
-  position: relative;
-  z-index: 9000; 
-  background-color:rgba(0,0,0,0.7); 
-  width :100%; height:100%; 
-  position:absolute; 
-  top:0; 
-  left:0;
+  z-index: 1000 !important;
 }
 
 .clear:after {
@@ -54,6 +45,66 @@ section.intro{
     display: block;
     height: 0;
     clear: both;
+}
+
+.fullscreen-cover {
+    z-index: -50;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url('../img/videoframe.jpg') center center / cover no-repeat;
+  }
+
+  .video {
+    display: none;
+  }
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /*@keyframes alpha {

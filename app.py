@@ -61,10 +61,10 @@ def speak():
                             auxVar = Word(tag[0].lower()).singularize()
                             if(key == auxVar):
                                 print (key + " this is it ")
-                                cursor = mysql.connect().cursor()
-                                query  = "SELECT videos.link FROM videos, workouts WHERE videos.workoutID = workouts.ID AND workouts.type='" + auxVar + "'"
-                                cursor.execute(query)
-                                data.append(cursor.fetchone())
+                                # cursor = mysql.connect().cursor()
+                                # query  = "SELECT videos.link FROM videos, workouts WHERE videos.workoutID = workouts.ID AND workouts.type='" + auxVar + "'"
+                                # cursor.execute(query)
+                                data.append(auxVar);
                                 break
 
                 # print (cuvant.definitions)

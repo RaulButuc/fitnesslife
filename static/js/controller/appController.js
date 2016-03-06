@@ -3,14 +3,17 @@ angular.module('mainApp')
 
 	function($scope, appService) {		
 
-		console.log("in contr");
+		$scope.view2 = false;
+		$scope.videoUrl = "";
+
 		$scope.triggerSpeech = function() {
 			console.log("here1");
 			return appService.triggerSpeech()
 				.then(function(response) {
 
-					console.log(response);
-					$scope.videoUrl = response;
+					$scope.videoUrl = response[0];
+					console.log($scope.videoUrl);
+					$scope.view2 = true;
 				});
 		}
 	}
