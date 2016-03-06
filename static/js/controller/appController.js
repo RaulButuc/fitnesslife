@@ -5,17 +5,23 @@ angular.module('mainApp')
 
 		$scope.view2 = false;
 		$scope.videoUrl = "";
-
+		
 		$scope.triggerSpeech = function() {
-			console.log("here1");
-			
+
 			return appService.triggerSpeech()
 				.then(function(response) {
-	
-					$scope.videoUrl = response[0];
-					$scope.song = response[1];
-					$scope.view2 = true;
-					$scope.startMusic();
+					
+					if(!response[0]) {
+						
+						$scope.repeatMsg = true;
+					} else {
+
+						$scope.repeatMsg = false;
+						$scope.videoUrl = response[0];
+						$scope.song = response[1];
+						$scope.view2 = true;
+						$scope.startMusic();
+					}
 				});
 		}
 
@@ -33,6 +39,6 @@ angular.module('mainApp')
 
 		$scope.stopSong = function() {
 			$scope.audio.pause();
-		} 
+		}
 	}
 ]);
