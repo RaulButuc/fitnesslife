@@ -160,21 +160,20 @@ def logout():
 
 @app.route('/validateLogin',methods=['POST'])
 def validateLogin():
+    con = mysql.connect()
+    cursor = con.cursor()
+
     try:
-        _username = request.form['inputEmail']
+        _username = request.form['username']
         _password = request.form['inputPassword']
         
-
-        
         # connect to mysql
+        sql = "select * from users where username ='" + _username + "'" + " and" + " passsword='" + _password + "'"
 
-        con = mysql.connect()
-        cursor = con.cursor()
-        cursor.callproc('sp_validateLogin',(_username,))
         data = cursor.fetchall()
 
         
-
+        print (data)
 
         if len(data) > 0:
             if check_password_hash(str(data[0][3]),_password):
@@ -187,7 +186,8 @@ def validateLogin():
             
 
     except Exception as e:
-        return render_template('error.html',error = str(e))
+        return render_template('main.html',error = str(e))
+
     finally:
         cursor.close()
         con.close()
@@ -195,20 +195,51 @@ def validateLogin():
 
 @app.route('/signUp', methods=['POST','GET'])
 def signUp():
+    conn = mysql.connect()
+    cursor = conn.cursor()
     try:
-        _name = request.form['inputName']
-        _email = request.form['inputEmail']
-        _password = request.form['inputPassword']
+        _name     = request.form['name']
+        _surname  = request.form ['surname']
+        _username = request.form['username']
+        _password = request.form['password']
+        _age      = request.form['age']
+        _height   = request.form['height']
+        _weight   = request.form['weight']
+        _gender   = request.form['gender']
+
+        _picture = "not yet"
+        points = 0
+        queryData =[]
+        queryData.append(_username)
+        queryData.append(_password)
+        queryData.append(_age)
+        queryData.append(_weight)
+        queryData.append(_height)
+        queryData.append(_picture)
+        queryData.append(points)
+        queryData.append(_name)
+        queryData.append(_surname)
+
 
         # validate the received values
-        if _name and _email and _password:
-            
+        if _name and _username and _surname and _password and _age and _height and _weight and _gender: 
             # All Good, let's call MySQL
-            
-            conn = mysql.connect()
-            cursor = conn.cursor()
             _hashed_password = generate_password_hash(_password)
-            cursor.callproc('sp_createUser',(_name,_email,_hashed_password))
+            print (queryData[0]) #username
+            print (queryData[1]) #password
+            print (queryData[2])#age
+            print (queryData[3])#weght
+            print (queryData[4])#height
+            print (queryData[5])#picture
+            print (queryData[6])#points
+            print (queryData[7])#name 
+            print (queryData[8])#surname
+
+            cursor.execute('INSERT INTO users(username, \
+                   passsword, age, weight, height, picture_src,points,first_name, surname) \
+                   VALUES ("%s", "%s", "%d", "%d", "%s", "%s", "%d", "%s","%s" )' % \
+                   (queryData[0],_hashed_password,int(queryData[2]),int(queryData[3]),str(queryData[4]),queryData[5],int(queryData[6]),queryData[7],queryData[8]))
+
             data = cursor.fetchall()
 
             if len(data) is 0:
