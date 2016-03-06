@@ -5,7 +5,7 @@ import speech_recognition as sr
 import pprint
 from textblob import TextBlob
 from textblob import Word
-from twilio.rest import TwilioRestClient
+#from twilio.rest import TwilioRestClient
 
 mysql = MySQL()
 app = Flask(__name__)
@@ -13,9 +13,9 @@ app.secret_key = 'why would I tell you my secret key?'
 
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'mamaligos'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'barlad'
 app.config['MYSQL_DATABASE_DB'] = 'fitnessDB'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_HOST'] = 'manchesterprofessionals.io'
 
 mysql.init_app(app)
 
@@ -80,23 +80,23 @@ def speak():
                 #Working with the state of the user
                 state = TextBlob(text).sentiment.polarity
                 print(state)
-                print (state)
+
                 if -1 <= state < -0.75:
-                    return "weareyoung.mp3"
+                    data.append("weareyoung.mp3")
                 elif -0.75 <= state < -0.5:
-                    return "limbaromana.mp3"
+                    data.append("limbaromana.mp3")
                 elif -0.5 <= state < -0.25:
-                    return "bobmarley.mp3"
+                    data.append("bobmarley.mp3")
                 elif -0.25 <= state < 0:
-                    return "thelumineers.mp3" 
+                    data.append("thelumineers.mp3")
                 elif 0 <= state < 0.25:
-                    return "eyeofthetiger.mp3"
+                    data.append("eyeofthetiger.mp3")
                 elif 0.25 <= state < 0.5:
-                    return "goodnight.mp3"
+                    data.append("goodnight.mp3")
                 elif 0.5 <= state < 0.75:
-                    return "dimitrivegas.mp3"
+                    data.append("dimitrivegas.mp3")
                 elif 0.75 <= state <= 1:
-                    return "herecomestheboom.mp3"
+                    data.append("herecomestheboom.mp3")
 
         except sr.UnknownValueError:
             print("Oops! Didn't catch that")
@@ -104,6 +104,8 @@ def speak():
             print("Uh oh! Couldn't request results from Google Speech Recognition service; {0}".format(e))
     except KeyboardInterrupt:
         pass
+
+    return json.dumps(data)
 
 @app.route('/main')
 def runSpeech():

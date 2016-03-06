@@ -10,9 +10,9 @@ angular.module('mainApp')
 			console.log("here1");
 			return appService.triggerSpeech()
 				.then(function(response) {
-
+	
 					$scope.videoUrl = response[0];
-					console.log($scope.videoUrl);
+					$scope.song     = response[1];
 					$scope.view2 = true;
 				});
 		}
