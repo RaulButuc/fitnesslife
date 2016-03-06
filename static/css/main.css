@@ -18,16 +18,33 @@ section.intro{
 }
 
 .text {
+
     display: table;
-	font-weight: 800;
+	  font-weight: 800;
     font-size: 50px;
     margin: 0 auto;
     padding-top: 28.5%;
-	color: white;
-	z-index: 1000 !important`;
+	  color: white;
+	  z-index: 1000 !important`;
+}
+
+.text-2 {
+    
+    position: absolute;
+    display: table;
+    font-weight: 800;
+    font-size: 50px;
+    margin: 0 auto;
+    padding-top: 28.5%;
+    color: white;
+    z-index: 1000 !important;
+    bottom: 50px;
+    left: 35%;
+    color: orange;
 }
 
 .mic {
+
 	display: table;
 	margin: 0 auto;
 	width: 73px;
@@ -37,6 +54,20 @@ section.intro{
 	cursor: pointer;
 	padding-top: 125px;
   z-index: 1000 !important;
+}
+
+.mic-2 {
+  
+  display: table;
+  margin: 0 auto;
+  width: 73px;
+  height: 73px;
+  background: url("../img/mic-red.png") no-repeat center;
+  border: none;
+  cursor: pointer;
+  padding-top: 125px;
+  z-index: 1000 !important;
+
 }
 
 .clear:after {
@@ -112,6 +143,7 @@ iframe {
   position:;
 }
 
+.
 /*@keyframes alpha {
   50%{fill: #000;}
 }*/

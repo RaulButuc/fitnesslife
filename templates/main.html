@@ -40,8 +40,9 @@
 		</div>
 		<div class="text">HOW ARE YOU FEELING TODAY?</div>
 		<div class="clear"></div>
-		<button class="mic" ng-click="triggerSpeech()"></button>
-		
+		<button ng-class="{'mic' : 'view2'}" ng-click="triggerSpeech()"></button>
+		<button ng-class="{'mic-2' : '!view2'}"></button>
+		<div ng-if="repeatMsg" class="text-2">PLEASE REPEAT AGAIN</div>
 	</div>
 	
 	<div ng-if="view2">

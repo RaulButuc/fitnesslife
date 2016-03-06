@@ -11,11 +11,20 @@ angular.module('mainApp')
 			
 			return appService.triggerSpeech()
 				.then(function(response) {
-	
-					$scope.videoUrl = response[0];
-					$scope.song = response[1];
-					$scope.view2 = true;
-					$scope.startMusic();
+					console.log(response[0]);
+					if(!response[0]) {
+						console.log("hereee");
+						$scope.repeatMsg = true;
+					} else {
+
+						console.log("caca");
+						console.log(response[0]);
+						$scope.repeatMsg = false;
+						$scope.videoUrl = response[0];
+						$scope.song = response[1];
+						$scope.view2 = true;
+						$scope.startMusic();
+					}
 				});
 		}
 
