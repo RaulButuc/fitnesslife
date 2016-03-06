@@ -101,10 +101,15 @@ section.intro{
 
 iframe {
   position: absolute;
-  top: 0;
+  top: 50;
   left: 0;
   width: 100% !important;
-  height: 100% !important;
+  height: 90% !important;
+}
+
+.go-back {
+  z-index: 1000;
+  position:;
 }
 
 /*@keyframes alpha {

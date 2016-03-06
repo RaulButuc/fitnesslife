@@ -26,7 +26,11 @@
 </head>
 <body ng-controller="appController">
  	
+ 	<a href="/">My Homepage</a>
  	<div ng-if="!view2">
+ 		<script>
+ 			$("video").prop('muted', true);
+ 		</script>
  		<div class="fullscreen-cover">&nbsp;</div>
  		<div class="fullscreen-bg">
 		    <video loop muted autoplay class="video">
@@ -39,13 +43,11 @@
 		<button class="mic" ng-click="triggerSpeech()"></button>
 		
 	</div>
-
+	
 	<div ng-if="view2">
+		<div ng-click="goToMain()" class="go-back">Go Back</div>
 		<div ng-if="videoUrl == 'muscle'">
 			<iframe id ="ytplayer"src="https://www.youtube.com/embed/cGoubsT3GeA?rel=0&autoplay=1&start=72&enablejsapi=1" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-			<!-- <audio controls id="myAudio">
-				<source ng-src="../static/music/bobmarley.mp3" type="audio/mp3">
-			</audio>	 -->
 			<div ng-init="startMusic(song)"></div> 
 		</div>
 		<div ng-if="videoUrl == 'chest'">
@@ -56,7 +58,7 @@
 			<iframe src="https://www.youtube.com/embed/ZCldXaJJEnk?autoplay=1&start=62" frameborder="0" allowfullscreen></iframe>
 			<div ng-init="startMusic(song)"></div> 
 		</div>
-		<div ng-if="videoUrl == 'loose weight'">
+		<div ng-if="videoUrl == 'weight'">
 			<iframe src="https://www.youtube.com/embed/6EEWd8_Caug?autoplay=1&start=51" frameborder="0" allowfullscreen></iframe>
 			<div ng-init="startMusic(song)"></div> 
 		</div>

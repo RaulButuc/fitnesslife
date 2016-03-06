@@ -8,21 +8,31 @@ angular.module('mainApp')
 
 		$scope.triggerSpeech = function() {
 			console.log("here1");
+			
 			return appService.triggerSpeech()
 				.then(function(response) {
 	
 					$scope.videoUrl = response[0];
 					$scope.song = response[1];
-					console.log($scope.song);
 					$scope.view2 = true;
-					startMusic();
+					$scope.startMusic();
 				});
 		}
 
 		$scope.startMusic = function(songName) {
 
-			var audio = new Audio('../static/music/' + songName);
-			audio.play(); 
+			$scope.audio = new Audio('../static/music/' + songName);
+			$scope.audio.play();
 		}
+
+		$scope.goToMain = function() {
+
+			$scope.view2 = false;
+			$scope.stopSong();
+		}
+
+		$scope.stopSong = function() {
+			$scope.audio.pause();
+		} 
 	}
 ]);
