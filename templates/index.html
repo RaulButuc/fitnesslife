@@ -1,4 +1,4 @@
-<html>
+<html ng-app="mainApp">
 	<head>
 		<title>fitness</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,8 +6,14 @@
 		<link rel="stylesheet" href="../static/css/index.css">
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<script src="../static/js/angular.min.js"></script>
+		  <script src="../static/js/angular.audio.js"></script>
+		  <script src="../static/js/app.js"></script>
+		  <script src="../static/js/service/appService.js"></script>
+		  <script src="../static/js/controller/appController.js"></script>
 	</head>
-	<body>
+	<body ng-controller="appController">
+		<div ng-init="getUserRanks()"></div>
 		<div class="main-body-wrapper">
 			<div class="row body-wrapper">
 				<div class="small-8 columns wrapper left-side">		
@@ -90,8 +96,8 @@
 						<div class="small-12 columns videos">
 							<ul class="videos">
                                 <h3 class="sugestions-header">Top rank users</h3>
-                                <hr class="shadow" />
-                                <div class="clear"></div>
+                          
+								
 								<li class="user-box">
 									<div class="user-img-wrapper">
 										<a href="#">

@@ -26,7 +26,7 @@ angular.module('mainApp')
 				}, function(response) {});
 		},
 		
-		getBestVideos: function() {
+		getBestUsers: function() {
 
 			var url = '/getUserRanks';
 

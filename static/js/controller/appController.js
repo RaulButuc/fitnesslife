@@ -34,5 +34,23 @@ angular.module('mainApp')
 		$scope.stopSong = function() {
 			$scope.audio.pause();
 		} 
+
+		$scope.getUserRanks = function() {
+			console.log("dsadasdsa");
+			return appService.getBestUsers()
+				.then(function(response) {
+
+					$scope.bestUsers = response;
+					$scope.bestUsers.forEach(function(user) {
+						console.log(user);
+					})
+					console.log($scope.bestUsers);
+				});
+		}
+
+		$scope.displayUser = function(user) {
+
+			console.log(user);
+		}
 	}
 ]);

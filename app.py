@@ -59,7 +59,7 @@ def speak():
         try:
             # recognize speech using Google Speech Recognition
             value = r.recognize_google(audio)
-
+            valueTaken=0
             # we need some special handling here to correctly print unicode characters to standard output
             if str is bytes: # this version of Python uses bytes for strings (Python 2)
                 text = value.encode("utf-8")
@@ -69,14 +69,15 @@ def speak():
                         for key in exerciseType :
                             auxVar = Word(tag[0].lower()).singularize()
                             if(key == auxVar):
-
                                 print (key + " this is it ")
                                 # cursor = mysql.connect().cursor()
                                 # query  = "SELECT videos.link FROM videos, workouts WHERE videos.workoutID = workouts.ID AND workouts.type='" + auxVar + "'"
                                 # cursor.execute(query)
                                 data.append(auxVar);
+                                valueTaken = 1
                                 break
-
+                if valueTaken == 0 :
+                    data.append("muscle")
                 #Working with the state of the user
                 state = TextBlob(text).sentiment.polarity
                 print(state)
@@ -133,13 +134,13 @@ def userHome():
 @app.route('/getUserRanks')
 def getUserRanks():
     cursor = mysql.connect().cursor()
-    query = "SELECT user_id, first_name, surname FROM `users` ORDER BY points DESC LIMIT 4;";
+    query = "SELECT user_id, first_name, surname FROM `users` ORDER BY points ASC LIMIT 4;";
     
     cursor.execute(query)
     data =  cursor.fetchall()
     user = []
     for x in data:
-        user.append({x[0] : x[1] + " " + x[2]})
+        user.append(x[1] + " " + x[2])
 
     return json.dumps(user)
 
