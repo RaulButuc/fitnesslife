@@ -131,7 +131,8 @@ li.video:last-child {
 }
 
 .user-box {
-    border-bottom: 1px solid #8900FF !important;
+    padding-left: 20px;
+    margin-top: -20px;
     clear: both !important;
 }
 
