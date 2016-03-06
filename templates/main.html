@@ -6,7 +6,7 @@
   <script>window.jQuery || document.write('<script src="../libs/jquery/dist/jquery.min.js"><\/script>')</script> 
   <script src="../static/js/jquery.vide.js"></script> 
   <script src="../static/js/angular.min.js"></script>
-  <script src="../static/js/angular-sanitize.min.js"></script>
+  <script src="../static/js/angular.audio.js"></script>
   <script src="../static/js/app.js"></script>
   <script src="../static/js/service/appService.js"></script>
   <script src="../static/js/service/urlFilter.js"></script>
@@ -43,24 +43,34 @@
 	<div ng-if="view2">
 		<div ng-if="videoUrl == 'muscle'">
 			<iframe id ="ytplayer"src="https://www.youtube.com/embed/cGoubsT3GeA?rel=0&autoplay=1&start=72&enablejsapi=1" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+			<!-- <audio controls id="myAudio">
+				<source ng-src="../static/music/bobmarley.mp3" type="audio/mp3">
+			</audio>	 -->
+			<div ng-init="startMusic(song)"></div> 
 		</div>
 		<div ng-if="videoUrl == 'chest'">
 			<iframe src="https://www.youtube.com/embed/-hj4upI6qQo?autoplay=1&start=68" frameborder="0" allowfullscreen></iframe>
+			<div ng-init="startMusic(song)"></div> 
 		</div>
 		<div ng-if="videoUrl == 'shoulder'">
 			<iframe src="https://www.youtube.com/embed/ZCldXaJJEnk?autoplay=1&start=62" frameborder="0" allowfullscreen></iframe>
+			<div ng-init="startMusic(song)"></div> 
 		</div>
 		<div ng-if="videoUrl == 'loose weight'">
 			<iframe src="https://www.youtube.com/embed/6EEWd8_Caug?autoplay=1&start=51" frameborder="0" allowfullscreen></iframe>
+			<div ng-init="startMusic(song)"></div> 
 		</div>
 		<div ng-if="videoUrl == 'circuit'">
 			<iframe src="https://www.youtube.com/embed/BLYXyd3cY6M?autoplay=1&start=42" frameborder="0" allowfullscreen></iframe>
+			<div ng-init="startMusic(song)"></div> 
 		</div>
 		<div ng-if="videoUrl == 'back'">
 			<iframe src="https://www.youtube.com/embed/Ywis2Rrt7i0?autoplay=1&start=63" frameborder="0" allowfullscreen></iframe>
+			<div ng-init="startMusic(song)"></div> 
 		</div>
 		<div ng-if="videoUrl == 'leg'">
 			<iframe src="https://www.youtube.com/embed/j5Bag7blLLk?autoplay=1&start=55" frameborder="0" allowfullscreen></iframe>
+			<div ng-init="startMusic(song)"></div> 
 		</div>
 	</div>
 
